@@ -13,27 +13,27 @@ namespace golfcard.Models
         public void ShowGreeting()
         {   
             System.Console.WriteLine("Welcome to the golf game!");
+            System.Console.WriteLine("Which course would you like to play?");
             foreach(var course in Courses)
             {
-                System.Console.WriteLine($"par : {course.Value[0].Par}");
+                System.Console.WriteLine($"{course.Key.Location}, par : {course.Value[0].Par}");
             }
         }
 
-        // public void DisplayCourses()
-        // {
-        //     System.Console.WriteLine("Here are the course choices: ");
-        //     foreach(KeyValuePair<Course, List<Hole>> course in Courses){
-        //         System.Console.WriteLine(course.Key[0].name);
-        //        System.Console.WriteLine($"{course.Key}. {course.Key}");
-        //     }
-        //     System.Console.WriteLine("Which course would you like to play today?");
+        public void DisplayCourses()
+        {
+            System.Console.WriteLine("Here are the course choices: ");
+            foreach(KeyValuePair<Course, List<Hole>> course in Courses){
+               System.Console.WriteLine($"{course.Key.Location}. {course.Value[0].Par}");
+            }
+            System.Console.WriteLine("Which course would you like to play today?");
             // SelectCourse();
-        // } 
+        } 
 
         // public void SelectCourse()
         // {
         //     Course targetCourse;
-        //     while(!Enum.TryParse(Console.ReadLine(),true, out targetCourse))
+        //     while(!Enum.TryParse(Console.ReadLine(), out targetCourse))
         //     {
         //         System.Console.WriteLine("Not a valid course");
         //     }

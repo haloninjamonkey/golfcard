@@ -30,10 +30,11 @@ namespace golfcard
             myFirstTry.Courses.Add(qHollow, qHollowHoles);
 
 
-            Console.Clear();
+            // Console.Clear();
             // System.Console.WriteLine("{0} has {1} holes and a par of {2}", augusta.Name, augusta.Holes, augusta.Par);
             myFirstTry.ShowGreeting();
-            // myFirstTry.Courses();
+            System.Console.WriteLine();
+            myFirstTry.DisplayCourses();
             Console.ReadLine();
         }
     }
