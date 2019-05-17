@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace golfcard.Models
 {
-    public enum Name 
+    public enum Location 
     { 
         Augusta = 1,
         Pebble,
@@ -15,15 +15,15 @@ namespace golfcard.Models
         // public int NumHoles { get; set; }
         public int Par { get; set; }
         public int Holes { get; set; }
-        public Name Name { get; set; }
+        public Location Location { get; set; }
 
         
         
-        public Course(int par, int holes, Name name)
+        public Course(int par, int holes, Location location)
         {
             Par = par;
             Holes = holes;
-            Name = name;
+            Location = location;       
         }
 
         
