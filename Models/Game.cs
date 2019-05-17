@@ -10,25 +10,23 @@ namespace golfcard.Models
         public Dictionary<Course,List<Hole>> Courses = new Dictionary<Course, List<Hole>>();
         public List<Hole> ScorePerHole { get; set; } = new List<Hole>();
 
+        
         public void ShowGreeting()
         {   
             System.Console.WriteLine("Welcome to the golf game!");
             System.Console.WriteLine("Which course would you like to play?");
-            foreach(var course in Courses)
-            {
-                System.Console.WriteLine($"{course.Key.Location}, par : {course.Value[0].Par}");
-            }
         }
 
         public void DisplayCourses()
         {
             System.Console.WriteLine("Here are the course choices: ");
             foreach(KeyValuePair<Course, List<Hole>> course in Courses){
-               System.Console.WriteLine($"{course.Key.Location}. {course.Value[0].Par}");
+               System.Console.WriteLine($"{course.Key.Location}. {course.Value[0].Par} {course.Key.Holes}");
             }
             System.Console.WriteLine("Which course would you like to play today?");
             // SelectCourse();
         } 
+        
 
         // public void SelectCourse()
         // {

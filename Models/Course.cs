@@ -13,7 +13,7 @@ namespace golfcard.Models
     public class Course
     {
         // public int NumHoles { get; set; }
-        public int Par { get; set; }
+        public int Par { get; private set; }
         public int Holes { get; set; }
         public Location Location { get; set; }
 
@@ -24,8 +24,7 @@ namespace golfcard.Models
             Par = par;
             Holes = holes;
             Location = location;       
-        }
-
+        }           
         
     }
     
