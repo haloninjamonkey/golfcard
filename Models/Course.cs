@@ -12,9 +12,9 @@ namespace golfcard.Models
     } 
     public class Course
     {
-        // public int NumHoles { get; set; }
-        public int Par { get; private set; }
-        public int Holes { get; set; }
+        public int NumHoles { get; set; }
+        public int Par { get; set; }
+        public List<Hole> Holes { get; set; }
         public Location Location { get; set; }
 
         
@@ -22,10 +22,9 @@ namespace golfcard.Models
         public Course(int par, int holes, Location location)
         {
             Par = par;
-            Holes = holes;
+            NumHoles = holes;
             Location = location;       
-        }           
-        
+        }
     }
     
 }

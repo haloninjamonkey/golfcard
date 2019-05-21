@@ -8,6 +8,9 @@ namespace golfcard
     {
         static void Main(string[] args)
         {
+            #region Data region
+                
+            
             var augustaHoles  = new List<Hole>();
             var pebbleHoles = new List<Hole>();
             var plantationHoles = new List<Hole>();
@@ -62,7 +65,7 @@ namespace golfcard
             myFirstTry.Courses.Add(pebble, pebbleHoles);
             myFirstTry.Courses.Add(plantation, plantationHoles);
             myFirstTry.Courses.Add(qHollow, qHollowHoles);
-
+            #endregion
 
             // Console.Clear();
             // System.Console.WriteLine("{0} has {1} holes and a par of {2}", augusta.Name, augusta.Holes, augusta.Par);
