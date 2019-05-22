@@ -8,7 +8,7 @@ namespace golfcard.Models
     //     Pebble,
     //     Plantation,
     //     QuailHollow
-    
+
 
     // } 
     public class Course
@@ -24,8 +24,7 @@ namespace golfcard.Models
         {
             Holes = holes;
             Location = location;       
-        }           
-        
+        }
     }
     
 }
