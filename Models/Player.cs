@@ -13,6 +13,7 @@ namespace golfcard.Models
             Score = score;
         }
     
+    
     }
 
     

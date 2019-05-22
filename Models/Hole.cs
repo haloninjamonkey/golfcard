@@ -12,5 +12,6 @@ namespace golfcard.Models
             Par = par;
         }
 
+
     }
 }

@@ -11,5 +11,6 @@ namespace golfcard
             Game myFirstTry= new Game();
             myFirstTry.GameSetup();
         }
+        
     }
 }
