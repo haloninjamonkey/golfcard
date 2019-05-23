@@ -8,8 +8,8 @@ namespace golfcard.Models
         // public List<Players> NumPlayers { get; set; } = new List<Players>();
         // public List<Course> CourseChoice { get; set; } = new List<Course>();
         public List<Course> Courses = new List<Course>();
-        public List<Hole> ScorePerHole { get; set; } = new List<Hole>();
-        public Player ActivePlayer { get; set; }
+        public List<Hole> Holes { get; set; } = new List<Hole>();
+        public List<Player> Players { get; set; } = new List<Player>();
         public Course ActiveCourse { get; set; }
 
         public void GameSetup()
@@ -102,14 +102,25 @@ namespace golfcard.Models
             Courses.Add(plantation);
             Courses.Add(qHollow);
             #endregion
-            System.Console.WriteLine("What's your name? ");
-            string userInput = Console.ReadLine();
-            ActivePlayer = new Player(userInput,ActiveCourse, 0);
             ShowGreeting();
+            SelectCourse();
+            StartGame(ActiveCourse);
         }
         public void ShowGreeting()
         {
             System.Console.WriteLine("Welcome to the golf game!");
+            System.Console.WriteLine("How many players will be playing today? ");
+            string numPlayStr = Console.ReadLine();
+            int numPlayInt;
+            Int32.TryParse(numPlayStr, out numPlayInt);
+        
+            for(int i = 0; i < numPlayInt; i++)
+            {
+                System.Console.WriteLine($"Please type the name of player {(i + 1)}: ");
+                string playerName = Console.ReadLine();
+                Players[i].Name = playerName;
+            }          
+            System.Console.WriteLine(Players[0].Name);
             DisplayCourses();
         }
 
@@ -119,44 +130,42 @@ namespace golfcard.Models
             System.Console.WriteLine("Here are the course choices: ");
             foreach (Course course in Courses)
             {
-                System.Console.WriteLine($"{course.Location}: {course.Holes} holes");
+                System.Console.WriteLine($"{i}. {course.Location}: {course.Holes} holes");
                 i++;
             }
-
-            SelectCourse();
         }
 
-
-        public void StartGame(Player player, Course course)
-        {
+        public void SelectCourse()
+        {   
+            System.Console.WriteLine("Please enter a number to select a course.");
+            var courseStr = Console.ReadLine();
+            int courseInt;
+            Int32.TryParse(courseStr, out courseInt);
+            ActiveCourse = Courses[(courseInt - 1)];
+            System.Console.WriteLine($"Okay, let's get started on {ActiveCourse.Location}");
             
         }
 
 
-        public void SelectCourse()
+        public void StartGame(Course course)
         {
-            string chosenCourse;
-            System.Console.WriteLine($"{ActivePlayer.Name}, which course would you like to play today?");
-            chosenCourse = Console.ReadLine().ToLower();
-            switch (chosenCourse)
+            foreach(Hole hole in Holes)
             {
-                case "augusta":
-                    break;
-                case "pebble":
-                    System.Console.WriteLine("You have chosen Pebble");
-                    break;
-                case "plantation":
-                    System.Console.WriteLine("You have chosen Plantation");
-                    break;
-                case "quail hollow":
-                    System.Console.WriteLine("You have chosen Quail Hollow");
-                    break;
-                default:
-                    System.Console.WriteLine("That is not a valid choice, please try again.");
-                    SelectCourse();
-                    break;
+                foreach(Player player in Players)
+                {
+                    int i = 0;
+                    System.Console.WriteLine($"Please enter a score for {player.Name}: ");
+                    string holeScoreStr = Console.ReadLine();
+                    int holeScore; 
+                    Int32.TryParse(holeScoreStr, out holeScore);
+                    player.Scores[i] = holeScore;
+                    i++;
+                }
+
             }
         }
+
+
     }
 
 }

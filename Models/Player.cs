@@ -1,19 +1,21 @@
+using System.Collections.Generic;
+
 namespace golfcard.Models
 {
     public class Player
     {
-        public readonly string Name;
-        public Course Course { get; set; }
-        public int Score { get; set; }
+        public string Name { get; set; }
+        // public Course Course { get; set; }
+        public List<int> Scores { get; set; } = new List<int>();
 
-        public Player(string name, Course course, int score)
+        public Player(string name)
         {
             Name = name;
-            Course = course;
-            Score = score;
+            // Course = course;
+            // Scores = score;
         }
     
-    
+
     }
 
     
